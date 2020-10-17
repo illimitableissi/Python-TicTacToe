@@ -1,8 +1,8 @@
 # Python Tic Tac Toe
 
-game_row1 = ["A0","A1","A2"]
-game_row2 = ["B0","B1","B2"]
-game_row3 = ["C0","C1","C2"]
+game_row1 = ["","",""]
+game_row2 = ["","",""]
+game_row3 = ["","",""]
 
 
 def display(row1,row2,row3):
@@ -10,11 +10,9 @@ def display(row1,row2,row3):
     Display function to show game board
     """
     pass
-    print(row1)
-    print(row2)
-    print(row3)
+    print(f"{row1}\n{row2}\n{row3}")
 
-def user_pick():
+def userrow_pick():
     row_pick = ''
     acceptable_range = range(0,3)
     within_range = False
@@ -23,7 +21,7 @@ def user_pick():
     """
     pass
     while row_pick.isdigit() == False or within_range==False:
-        row_pick = input("Please make a choice (0-2): ")
+        row_pick = input("Please choose a row (0-2): ")
 
         if row_pick.isdigit() == False:
             print("Sorry that choice is not a digit")
@@ -37,15 +35,49 @@ def user_pick():
 
     return int(row_pick)
 
-def game_update(p,r1,r2,r3):
+def userindex_pick():
+    index_pick = ''
+    acceptable_range = range(0,3)
+    within_range = False
+    """
+    User X or O choice
+    """
+    pass
+    while index_pick.isdigit() == False or within_range==False:
+        index_pick = input("Please choose a space (0-2): ")
+
+        if index_pick.isdigit() == False:
+            print("Sorry that choice is not a digit")
+
+        if index_pick.isdigit() == True:
+            if int(row_pick) in acceptable_range:
+                within_range = True
+            else:
+                within_range_range = False
+                print("Sorry that number is not in range")
+
+    return int(index_pick)
+
+def game_update(p,i,r1,r2,r3):
     """
     Updates gameboard with user pick
     """
+    
     pass
-
-
+    if p == 0:
+        r1[i] = "X"
+        display(r1,r2,r3)
+    elif p == 1:
+        r2[i] = "X"
+        display(r1,r2,r3)
+    elif p == 2:
+        r3[i] = "X"
+        display(r1,r2,r3)
+    else:
+        pass
 
 
 display(game_row1, game_row2, game_row3)
-user_pick()
-# game_update(pick,game_row1, game_row2, game_row3)
+row_pick = userrow_pick()
+index_pick = userindex_pick()
+game_update(row_pick, index_pick, game_row1, game_row2, game_row3)
