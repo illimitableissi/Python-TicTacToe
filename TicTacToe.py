@@ -62,7 +62,7 @@ def game_update(p,i,r1,r2,r3):
     """
     Updates gameboard with user pick
     """
-    
+
     pass
     if p == 0:
         r1[i] = "X"
